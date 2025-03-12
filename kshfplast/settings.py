@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'website',
+    'blog',
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,10 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'statics',
+]
+
 MEDIA_URL = '/media/'
 
 # Default primary key field type

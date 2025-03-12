@@ -1,0 +1,215 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Supreme</title>
+    <link rel="icon" href="{% static 'img/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!--::header part start::-->
+    <header class="main_menu">
+        <div class="sub_menu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-8">
+                        <div class="sub_menu_right_content">
+                            <a href="#"><i class="flaticon-phone-call"></i>+02 89 365 3652</a> <span>|</span>
+                            <a href="#"><i class="flaticon-at"></i><span class="__cf_email__" data-cfemail="652c0b030a25001d04081509004b060a08">[email&#160;protected]</span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-4">
+                        <div class="sub_menu_social_icon">
+                            <a href="#"><i class="flaticon-facebook"></i></a>
+                            <a href="#"><i class="flaticon-twitter"></i></a>
+                            <a href="#"><i class="flaticon-skype"></i></a>
+                            <a href="#"><i class="flaticon-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main_menu_iner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand" href="{% url 'website:index' %}"> <img src="{% static 'img/logo.png' %}" alt="logo"> </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse main-menu-item justify-content-end"
+                                id="navbarSupportedContent">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{% url 'website:index' %}">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'website:about' %}">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'blog:index' %}">Blog</a>
+                                    </li>
+                                   
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
+                                            <a class="dropdown-item" href="service.html">Service</a>
+                                            <a class="dropdown-item" href="project_details.html">Projects details</a>
+                                            <a class="dropdown-item" href="elements.html">Elements</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{% url 'website:contact' %}">Contact</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+{% block contents %}
+
+{% endblock %}
+
+
+  <!-- footer part start-->
+  <footer class="footer-area">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-sm-6 col-md-3 col-xl-3">
+                <div class="single-footer-widget footer_1">
+                    <a href="{% url 'website:index' %}"> <img src="{% static 'img/footer-logo.png' %}" alt=""> </a>
+                    <p>So seed seed green that winged cattle in Gahesd thing made fly you're no divided
+                        deep move lan Gathering thing us land years living on floor me the cavaty do buty
+                        fresh</p>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-md-2 col-xl-2 offset-xl-1">
+                <div class="single-footer-widget">
+                    <h4>Best Services</h4>
+                    <ul>
+                        <li><a href="#">Car accident</a></li>
+                        <li><a href="#">Personal injury</a></li>
+                        <li><a href="#">Family law</a></li>
+                        <li><a href="#">Bank and financial</a></li>
+                        <li><a href="#">Capital market</a></li>
+                        <li><a href="#">Employment Law</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4 col-xl-3">
+                <div class="single-footer-widget footer_3">
+                    <h4> our Gallery</h4>
+                    <div class="footer_img">
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_1.png' %}" alt="">
+                        </div>
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_2.png' %}" alt="">
+                        </div>
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_3.png' %}" alt="">
+                        </div>
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_4.png' %}" alt="">
+                        </div>
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_5.png' %}" alt="">
+                        </div>
+                        <div class="single_footer_img">
+                            <img src="{% static 'img/footer_img_6.png' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3 col-xl-3">
+                <div class="single-footer-widget footer_icon">
+                    <h4>Contact Info</h4>
+                    <p>4361 Morningview Lane Artland , Pall Street
+                        Latimer, IA 50452 / 23654</p>
+                    <ul>
+                        <li><a href="#"><i class="ti-mobile"></i>+02 - 32 365 2654</a></li>
+                        <li><a href="#"><i class="ti-email"></i><span class="__cf_email__" data-cfemail="a7c6d5cec4cbc6d0e7cbc6d089c4c8ca">[email&#160;protected]</span></a></li>
+                        <li><a href="#"><i class="ti-world"></i> ariclawyerfirm.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="copyright_part_text text-center">
+                    <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js' %}"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer part end-->
+
+<!-- jquery plugins here-->
+<!-- jquery -->
+<script src="{% static 'js/jquery-1.12.1.min.js' %}"></script>
+<!-- popper js -->
+<script src="{% static 'js/popper.min.js' %}"></script>
+<!-- bootstrap js -->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<!-- magnific js -->
+<script src="{% static 'js/jquery.magnific-popup.js' %}"></script>
+<!-- swiper js -->
+<script src="{% static 'js/swiper.min.js' %}"></script>
+<!-- masonry js -->
+<script src="{% static 'js/masonry.pkgd.js' %}"></script>
+<!-- contact js -->
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.form.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<!-- custom js -->
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Global site tag (gtag.js' %}) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-23581568-13');
+</script>
+
+</body>
+
+</html>

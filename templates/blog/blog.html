@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load blog_tags %}
 {% block contents %}
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg">
@@ -75,8 +76,8 @@
                 <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         {% include 'blog/blog-search.html' %}
-                        {% include 'blog/blog-categories.html' %}
-                        {% include 'blog/blog-latest-posts.html' %}
+                        {% postcategories %}
+                        {% latestposts %}
                         {% include 'blog/blog-tags.html' %}
                         {% include 'blog/blog-newsletter.html' %}
                     </div>

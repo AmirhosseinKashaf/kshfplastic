@@ -53,6 +53,6 @@ def single_view (request,pid):
             'comments' : comments,
             'form' : form
             }
-        return render(request,'blog/blog-single.html',context) 
+        return render(request,'blog/single-blog.html',context) 
     else:
         return HttpResponseRedirect(reverse('accounts:login'))

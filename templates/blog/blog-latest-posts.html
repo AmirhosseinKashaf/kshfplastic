@@ -6,7 +6,7 @@
     <div class="media post_item">   
         <img src="{{post.image.url}}" width="50%" alt="post">
         <div class="media-body">
-            <a href="single-blog.html">
+            <a href="{% url 'blog:single' pid=post.id %}">
                 <h3>{{post.title}}</h3>
             </a>
             <p>{{post.published_date|naturaltime}}</p>

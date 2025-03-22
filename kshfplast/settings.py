@@ -40,10 +40,14 @@ INSTALLED_APPS = [
     'website',
     'blog',
     'django.contrib.humanize',
+    'django.contrib.sites',
     'django_summernote',
     'captcha',
+    'taggit',
     
 ]
+
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

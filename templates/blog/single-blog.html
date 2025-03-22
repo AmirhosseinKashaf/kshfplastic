@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% load blog_tags %}
 {% block contents %}
    <!-- breadcrumb start-->
@@ -98,8 +99,9 @@
                   </div>
                </div>
                <div class="comments-area">
-                  <h4>05 Comments</h4>
+                  <h4>{{comments|length}} Comments</h4>
                   <div class="comment-list">
+                  {% for comment in comments %}
                      <div class="single-comment justify-content-between d-flex">
                         <div class="user justify-content-between d-flex">
                            <div class="thumb">
@@ -107,100 +109,52 @@
                            </div>
                            <div class="desc">
                               <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
+                                 {{comment.message}}
                               </p>
                               <div class="d-flex justify-content-between">
                                  <div class="d-flex align-items-center">
                                     <h5>
-                                       <a href="#">Emilly Blunt</a>
+                                       <a href="#">comment.name</a>
                                     </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
+                                    <p class="date">{{comment.created_date|naturalday}}</p>
                                  </div>
-                                 <div class="reply-btn">
+                                 <!-- <div class="reply-btn">
                                     <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
+                                 </div> -->
                               </div>
                            </div>
                         </div>
                      </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="{% static 'img/comment/comment_2.png' %}" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="comment-list">
-                     <div class="single-comment justify-content-between d-flex">
-                        <div class="user justify-content-between d-flex">
-                           <div class="thumb">
-                              <img src="{% static 'img/comment/comment_3.png' %}" alt="">
-                           </div>
-                           <div class="desc">
-                              <p class="comment">
-                                 Multiply sea night grass fourth day sea lesser rule open subdue female fill which them
-                                 Blessed, give fill lesser bearing multiply sea night grass fourth day sea lesser
-                              </p>
-                              <div class="d-flex justify-content-between">
-                                 <div class="d-flex align-items-center">
-                                    <h5>
-                                       <a href="#">Emilly Blunt</a>
-                                    </h5>
-                                    <p class="date">December 4, 2017 at 3:12 pm </p>
-                                 </div>
-                                 <div class="reply-btn">
-                                    <a href="#" class="btn-reply text-uppercase">reply</a>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
+                     {% empty %}
+                     <p>no comment here, be the first one</p>
+                  {% endfor %}
                   </div>
                </div>
                <div class="comment-form">
-                  <h4>Leave a Reply</h4>
-                  <form class="form-contact comment_form" action="#" id="commentForm">
+                  <h4>Leave a Comment</h4>
+                  <form method="Post" class="form-contact comment_form" action="{% url 'blog:single' pid=post.id %}">
+                     {% csrf_token %}
                      <div class="row">
+                        <input type="hidden" name="post" value="{{post.id}}">
+                        {% if request.user.is_authenticated %}  
+                        <input type="hidden" name="name" value="{{request.user.name}}">
+                        <input type="hidden" name="email" value="{{request.user.email}}">
+                        {% else %}
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input class="form-control" name="name"  type="text" placeholder="Name">
+                           </div>
+                        </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input class="form-control" name="email"  type="email" placeholder="Email">
+                           </div>
+                        </div>
+                        {% endif %}
                         <div class="col-12">
                            <div class="form-group">
-                              <textarea class="form-control w-100" name="comment" id="comment" cols="30" rows="9"
+                              <textarea class="form-control w-100" name="comment"  cols="30" rows="9"
                                  placeholder="Write Comment"></textarea>
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="name" id="name" type="text" placeholder="Name">
-                           </div>
-                        </div>
-                        <div class="col-sm-6">
-                           <div class="form-group">
-                              <input class="form-control" name="email" id="email" type="email" placeholder="Email">
-                           </div>
-                        </div>
-                        <div class="col-12">
-                           <div class="form-group">
-                              <input class="form-control" name="website" id="website" type="text" placeholder="Website">
                            </div>
                         </div>
                      </div>

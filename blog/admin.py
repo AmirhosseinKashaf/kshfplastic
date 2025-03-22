@@ -1,10 +1,10 @@
 from django.contrib import admin
-# from django_summernote.admin import SummernoteModelAdmin
+from django_summernote.admin import SummernoteModelAdmin
 from blog.models import Post,Category,Comment
 
 # Register your models here.
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
     date_hierarchy = 'created_date'
     empty_value_displate = '-empty-'
     list_display = ('title','author', 'counted_views', 'status','login_require', 'published_date','created_date')

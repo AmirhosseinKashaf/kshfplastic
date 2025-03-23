@@ -44,7 +44,7 @@ def single_view (request,pid):
         current_index = list(all_posts).index(post)
         previous_post = all_posts[current_index - 1] if current_index > 0 else None
         next_post = all_posts[current_index + 1] if current_index < len(all_posts) - 1 else None
-        post.counted_views += 1  
+        post.counted_views += 1
         post.save()
         context = {
             'post' :post,

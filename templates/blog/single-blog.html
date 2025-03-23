@@ -114,7 +114,7 @@
                               <div class="d-flex justify-content-between">
                                  <div class="d-flex align-items-center">
                                     <h5>
-                                       <a href="#">comment.name</a>
+                                       <a href="#">{{comment.name}}</a>
                                     </h5>
                                     <p class="date">{{comment.created_date|naturalday}}</p>
                                  </div>
@@ -132,35 +132,40 @@
                </div>
                <div class="comment-form">
                   <h4>Leave a Comment</h4>
-                  <form method="Post" class="form-contact comment_form" action="{% url 'blog:single' pid=post.id %}">
+                  <form method="post" class="form-contact comment_form" action="{% url 'blog:single' pid=post.id %}">
                      {% csrf_token %}
                      <div class="row">
                         <input type="hidden" name="post" value="{{post.id}}">
-                        {% if request.user.is_authenticated %}  
-                        <input type="hidden" name="name" value="{{request.user.name}}">
+                        {% if request.user.is_authenticated %}
+                        <input type="hidden" name="name" value="{{request.user.get_full_name}}">
                         <input type="hidden" name="email" value="{{request.user.email}}">
                         {% else %}
                         <div class="col-sm-6">
                            <div class="form-group">
                               <input class="form-control" name="name"  type="text" placeholder="Name">
-                           </div>
+                           </div> 
                         </div>
                         <div class="col-sm-6">
                            <div class="form-group">
                               <input class="form-control" name="email"  type="email" placeholder="Email">
                            </div>
                         </div>
+                        <div class="col-sm-6">
+                           <div class="form-group">
+                              <input class="form-control" name="subject"  type="text" placeholder="Subject">
+                           </div>
+                        </div>
                         {% endif %}
                         <div class="col-12">
                            <div class="form-group">
-                              <textarea class="form-control w-100" name="comment"  cols="30" rows="9"
+                              <textarea class="form-control w-100" name="message" type="text"  cols="30" rows="9"
                                  placeholder="Write Comment"></textarea>
                            </div>
                         </div>
                      </div>
-                     <div class="form-group">
+                     <div class="form-group">            
                         <button type="submit" class="button button-contactForm btn_1">Send Message</button>
-                     </div>
+                     </div>  
                   </form>
                </div>
             </div>

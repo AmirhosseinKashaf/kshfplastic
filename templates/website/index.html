@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load index_tags %}
 {% block contents %}
     <!-- banner part start-->
     <section class="banner_part">
@@ -142,7 +143,7 @@
                             <div class="accordion-item active">
                                 <div class="accordion-header">
                                     <h2>Can you explain knowledge of the digital filing system?</h2>
-                                </div>
+                                </div>  
                                 <div class="accordion-body">
                                     <p>Forth him herb stars forth over forth that them air isn't be shall fourth winged
                                         man
@@ -334,83 +335,7 @@
     <!--::industries end::-->
 
     <!--::catagory_post start::-->
-    <section class="catagory_post">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4">
-                    <div class="section_tittle">
-                        <h2>Latest From Our
-                            Blog page</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_catagory_post post_2">
-                        <div class="category_post_img">
-                            <img src="{% static 'img/blog/blog_1.png' %}" alt="">
-                            <a href="blog.html" class="category_btn">chemical research</a>
-                        </div>
-                        <div class="post_text_1 pr_30">
-                            <p><span> By Michal</span> / March 30 , 2019</p>
-                            <a href="blog.html">
-                                <h3>Subdue lesser beast winged road maid so
-                                    bearing meat tree one</h3>
-                            </a>
-                            <div class="post_icon">
-                                <ul>
-                                    <li><i class="ti-comment"></i>2 Comment</li>
-                                    <li><i class="ti-bookmark"></i>Petrolium, Gas</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_catagory_post post_2">
-                        <div class="category_post_img">
-                            <img src="{% static 'img/blog/blog_2.png' %}" alt="">
-                            <a href="blog.html" class="category_btn">Construction</a>
-                        </div>
-                        <div class="post_text_1 pr_30">
-                            <p><span> By Michal</span> / March 30 , 2019</p>
-                            <a href="blog.html">
-                                <h3>You dominion signs good divide appear
-                                    stars void heaven winged</h3>
-                            </a>
-                            <div class="post_icon">
-                                <ul>
-                                    <li><i class="ti-comment"></i>2 Comment</li>
-                                    <li><i class="ti-bookmark"></i>Petrolium, Gas</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <div class="single_catagory_post post_2">
-                        <div class="category_post_img">
-                            <img src="{% static 'img/blog/blog_3.png' %}" alt="">
-                            <a href="blog.html" class="category_btn">engineering</a>
-                        </div>
-                        <div class="post_text_1 pr_30">
-                            <p><span> By Michal</span> / March 30 , 2019</p>
-                            <a href="blog.html">
-                                <h3>First fowl winged of likeness be rule fish
-                                    Day So that likeness have </h3>
-                            </a>
-                            <div class="post_icon">
-                                <ul>
-                                    <li><i class="ti-comment"></i>2 Comment</li>
-                                    <li><i class="ti-bookmark"></i>Petrolium, Gas</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{% latestposts %}
     <!--::catagory_post end::-->
 
 

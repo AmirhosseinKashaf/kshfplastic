@@ -1,0 +1,48 @@
+{% load static %}
+{% load blog_tags %}
+<section class="catagory_post">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4">
+                <div class="section_tittle">
+                    <h2>Latest From Our
+                        Blog page</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-sm-6 col-lg-4">
+                
+                <div class="single_catagory_post post_2">
+                    <div class="category_post_img">
+                        <img src="{{post.image.url}}" alt="">
+                        <a href="{% url 'blog:single' pid=post.id %}" class="category_btn">chemical research</a>
+                    </div>
+                    <div class="post_text_1 pr_30">
+                        <p><span>By {{post.author}}</span> / {{post.published_date|date:"d M, Y"}}</p>
+                        <a href="{% url 'blog:single' pid=post.id %}">
+                            <h3>{{post.title}}</h3>
+                        </a>
+                        <div class="post_icon">
+                            <ul>
+                                <li><i class="ti-comment"></i>{% comments_count post.id %} Comments</li>
+                                <li>
+                                    <i class="ti-bookmark"></i>  <!-- Icon appears once -->
+                                    {% for cat in post.category.all %}
+                                    <a href="{% url 'blog:category' cat_name=cat.name %}"> {{ cat.name }}{% if not forloop.last %}, {% endif %}  <!-- Comma between categories -->
+                                    {% empty %}
+                                        No categories  <!-- Fallback if no categories exist -->
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>

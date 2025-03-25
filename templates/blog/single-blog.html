@@ -108,22 +108,22 @@
                               <img src="{% static 'img/comment/comment_1.png' %}" alt="">
                            </div>
                            <div class="desc">
-                              <p class="comment">
-                                 {{comment.message}}
-                              </p>
                               <div class="d-flex justify-content-between">
                                  <div class="d-flex align-items-center">
                                     <h5>
                                        <a href="#">{{comment.name}}</a>
                                     </h5>
-                                    <p class="date">{{comment.created_date|naturalday}}</p>
                                  </div>
                                  <!-- <div class="reply-btn">
                                     <a href="#" class="btn-reply text-uppercase">reply</a>
                                  </div> -->
                               </div>
+                              <p class="comment">
+                                 {{comment.message}}
+                              </p>
                            </div>
                         </div>
+                        <p class="date">{{comment.created_date|naturalday}}</p>
                      </div>
                      {% empty %}
                      <p>no comment here, be the first one</p>

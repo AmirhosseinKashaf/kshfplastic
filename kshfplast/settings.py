@@ -41,13 +41,21 @@ INSTALLED_APPS = [
     'blog',
     'django.contrib.humanize',
     'django.contrib.sites',
+    'django.contrib.sitemaps',
     'django_summernote',
     'captcha',
     'taggit',
+    'robots',
+    'debug_toolbar',
     
 ]
 
 SITE_ID = 2
+
+# robots
+ROBOTS_USE_HOST = False
+
+ROBOTS_USE_SITEMAP = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -57,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'kshfplast.urls'
@@ -132,7 +141,9 @@ STATICFILES_DIRS = [
 ]
 MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
-
+INTERNAL_IPS = {
+    '127.0.0.1',
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

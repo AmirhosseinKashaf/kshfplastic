@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',
     'blog',
+    'accounts',
     'django.contrib.humanize',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -56,6 +58,10 @@ SITE_ID = 2
 ROBOTS_USE_HOST = False
 
 ROBOTS_USE_SITEMAP = False
+
+MULTI_CAPTCHA_ADMIN = {
+    'engine' : 'simple-captcha',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,3 +155,12 @@ INTERNAL_IPS = {
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Email configuration
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for production
+# EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
+# EMAIL_PORT = 587  # Port for TLS
+# EMAIL_USE_TLS = True  # Use TLS for secure connection
+# EMAIL_HOST_USER = 'kashafamirhossein@gmail.com'  # Your email address
+# EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
+# DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

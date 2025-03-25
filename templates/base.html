@@ -34,8 +34,15 @@
                 <div class="row">
                     <div class="col-lg-6 col-sm-8">
                         <div class="sub_menu_right_content">
-                            <a href="#"><i class="flaticon-phone-call"></i>+02 89 365 3652</a> <span>|</span>
-                            <a href="#"><i class="flaticon-at"></i><span class="__cf_email__" data-cfemail="652c0b030a25001d04081509004b060a08">[email&#160;protected]</span></a>
+                            {% if request.user.is_authenticated %}
+                            <a href="">Welcome, {{request.user.username}}</a><span>|</span>
+                            <a href="{% url 'accounts:logout' %}">Logout</a> <span>|</span>
+                            {% else %}
+                            <a href="{% url 'accounts:login' %}">Login</a> <span>|</span>
+                            <a href="{% url 'accounts:signup' %}">Signup</a> <span>|</span>
+                            {% endif %}
+                            <!-- <a href="#"><i class="flaticon-phone-call"></i>+02 89 365 3652</a> <span>|</span>
+                            <a href="#"><i class="flaticon-at"></i><span class="__cf_email__" data-cfemail="652c0b030a25001d04081509004b060a08">[email&#160;protected]</span></a> -->
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-4">

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'taggit',
     'robots',
     'debug_toolbar',
+    'compressor',
     
 ]
 
@@ -164,3 +165,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
 # DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+)
+
+COMPRESS_ENABLED = True
+COMPRESS_OFFLINE = True  # Enable offline compression (optional)
+
+# CSS compression settings
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.css_default.CssAbsoluteFilter',
+    'compressor.filters.cssmin.CSSMinFilter',
+]
+
+# JavaScript compression settings
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.jsmin.JSMinFilter',
+]
+
+

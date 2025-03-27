@@ -43,7 +43,7 @@
                                 
                                 <ul class="blog-info-link">
                                     {% for cat in post.category.all %}
-                                    <li><a href="#"><i class="far fa-comments"></i>{{cat.name}}</a> {% if not forloop.last %},{% endif %}</li>
+                                    <li><a href="{% url 'blog:category' cat_name=cat.name %}"><i class="far fa-comments"></i>{{cat.name}}</a> {% if not forloop.last %},{% endif %}</li>
                                     {% endfor %}
                                     <li><i class="far fa-comments"></i>{% comments_count post.id %} Comments</li>
                                     <li><i class="far fa-views"></i>{{post.counted_views}} Views</li>

@@ -12,7 +12,7 @@
                             <h5>Since <span>1990</span> </h5>
                             <h1> Real solutions!</h1>
                             <h3>Manufacturing Relationships Distributing Quality</h3>
-                            <a href="#" class="btn_1">learn more </a>
+                            <a href="{% url 'blog:index' %}" class="btn_1">learn more </a>
                         </div>
                     </div>
                 </div>
@@ -92,8 +92,11 @@
     </section>
     <!-- about part start-->
 
+
+
+
     <!--::industries start::-->
-    <section class="our_industries padding_top">
+    <!-- <section class="our_industries padding_top">
         <div class="container">
             <div class="row">
                 <div class="col-xl-3">
@@ -126,8 +129,9 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--::industries end::-->
+
 
     <!--::industries start::-->
     <section class="faq_part section_bg">
@@ -184,6 +188,11 @@
     </section>
     <!--::industries end::-->
 
+
+    <!--::catagory_post start::-->
+    {% latestposts %}
+    <!--::catagory_post end::-->
+    
     <!-- portfolio_part start-->
     <section class="portfolio_part section_padding">
         <div class="container">
@@ -334,13 +343,11 @@
     </section>
     <!--::industries end::-->
 
-    <!--::catagory_post start::-->
-{% latestposts %}
-    <!--::catagory_post end::-->
+
 
 
     <!--::subscribe area start::-->
-    <section class="subscribe_area">
+    <!-- <section class="subscribe_area">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -374,7 +381,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!--::subscribe area end::-->
 {% endblock %}
   

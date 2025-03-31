@@ -17,7 +17,7 @@
                 <div class="single_catagory_post post_2">
                     <div class="category_post_img">
                         <img src="{{post.image.url}}" alt="">
-                        <a href="{% url 'blog:single' pid=post.id %}" class="category_btn">chemical research</a>
+                        <a href="{% url 'blog:single' pid=post.id %}" class="category_btn"></a>
                     </div>
                     <div class="post_text_1 pr_30">
                         <p><span>By {{post.author}}</span> / {{post.published_date|date:"d M, Y"}}</p>
@@ -30,7 +30,7 @@
                                 <li>
                                     <i class="ti-bookmark"></i>  <!-- Icon appears once -->
                                     {% for cat in post.category.all %}
-                                    <a href="{% url 'blog:category' cat_name=cat.name %}"> {{ cat.name }}{% if not forloop.last %}, {% endif %}  <!-- Comma between categories -->
+                                    <a href="{% url 'blog:category' cat_name=cat.name %}" style="color: black;"> {{ cat.name }}{% if not forloop.last %}, {% endif %}  <!-- Comma between categories -->
                                     {% empty %}
                                         No categories  <!-- Fallback if no categories exist -->
                                     {% endfor %}

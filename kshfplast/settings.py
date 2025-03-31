@@ -11,11 +11,20 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
+from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = config("SECRET_KEY", deault="test")
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = config("DEBUG",cast=bool,default=True)
+
+ALLOWED_HOSTS = []
+
+
+SITE_ID = 2
 
 
 
@@ -85,7 +94,26 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'kshfplast.wsgi.application'
 
-
+# Database
+# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+    "default": {
+        "ENGINE": config("DB_ENGINE",default="django.db.backends.postgresql"),
+        "NAME": config("DB_NAME",default="postgres"),
+        "USER": config("DB_USER",default="postgres"),
+        "PASSWORD": config("DB_PASS",default="postgres"),
+        "HOST": config("DB_HOST",default="127.0.0.1"),
+        "PORT": config("DB_PORT",cast=int,default=5432),
+    }
+}
 
 
 
@@ -123,6 +151,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
+MEDIA_ROOT = 'media'
+STATIC_ROOT = 'static'
+STATICFILES_DIRS = [
+    BASE_DIR / 'statics',
+]
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
@@ -136,14 +171,17 @@ INTERNAL_IPS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email configuration
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for production
-EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
-EMAIL_PORT = 587  # Port for TLS
-EMAIL_USE_TLS = True  # Use TLS for secure connection
-EMAIL_HOST_USER = 'kashafamirhossein@gmail.com'  # Your email address
-EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
-DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for production
+    EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
+    EMAIL_PORT = 587  # Port for TLS
+    EMAIL_USE_TLS = True  # Use TLS for secure connection
+    EMAIL_HOST_USER = 'kashafamirhossein@gmail.com'  # Your email address
+    EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
+    DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
+
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -165,4 +203,6 @@ COMPRESS_JS_FILTERS = [
     'compressor.filters.jsmin.JSMinFilter',
 ]
 
+#security configs for production
 
+CSRF_COOKIE_SECURE = True

@@ -136,14 +136,14 @@ INTERNAL_IPS = {
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Email configuration
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for production
-# EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
-# EMAIL_PORT = 587  # Port for TLS
-# EMAIL_USE_TLS = True  # Use TLS for secure connection
-# EMAIL_HOST_USER = 'kashafamirhossein@gmail.com'  # Your email address
-# EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
-# DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'  # Use SMTP for production
+EMAIL_HOST = 'smtp.gmail.com'  # Replace with your email provider's SMTP server
+EMAIL_PORT = 587  # Port for TLS
+EMAIL_USE_TLS = True  # Use TLS for secure connection
+EMAIL_HOST_USER = 'kashafamirhossein@gmail.com'  # Your email address
+EMAIL_HOST_PASSWORD = 'smgj rjxe qnre fcaa'
+DEFAULT_FROM_EMAIL = 'kashafamirhossein@gmail.com'  # Default sender email
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

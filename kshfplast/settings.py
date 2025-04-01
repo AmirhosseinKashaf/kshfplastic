@@ -193,7 +193,7 @@ STATICFILES_FINDERS = (
 )
 
 COMPRESS_ENABLED = True
-COMPRESS_OFFLINE = True  # Enable offline compression (optional)
+COMPRESS_OFFLINE = False  # Enable offline compression (optional)
 
 # CSS compression settings
 COMPRESS_CSS_FILTERS = [

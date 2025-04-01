@@ -20,7 +20,7 @@ SECRET_KEY = config("SECRET_KEY", default="test")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DEBUG",cast=bool,default=True)
-
+#allowed hosts
 ALLOWED_HOSTS = ["mysite-amirhosseinkashaf.liara.run",
     "localhost",
     "127.0.0.1",

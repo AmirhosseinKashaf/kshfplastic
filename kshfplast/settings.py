@@ -158,7 +158,7 @@ USE_TZ = True
 MEDIA_ROOT = 'media'
 STATIC_ROOT = 'static'
 STATICFILES_DIRS = [
-    BASE_DIR / 'staticfiles',
+    BASE_DIR / 'statics',
 ]
 
 STATIC_URL = '/static/'
@@ -196,7 +196,7 @@ COMPRESS_ENABLED = True
 COMPRESS_OFFLINE = True  # Enable offline compression (optional)
 COMPRESS_ROOT = BASE_DIR / 'static'  # Should match your STATIC_ROOT
 COMPRESS_STORAGE = 'compressor.storage.CompressorFileStorage'
-# STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
 # CSS compression settings
 COMPRESS_CSS_FILTERS = [

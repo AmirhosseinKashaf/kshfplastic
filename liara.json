@@ -1,0 +1,17 @@
+{
+  "app": "mysite-amirhosseinkashaf",
+  "port": 80,
+  "build": {
+    "location": "iran"
+  },
+  "disks": [
+    {
+      "name": "media",
+      "mountTo": "media"
+    },
+    {
+      "name": "static",
+      "mountTo": "static"
+    }
+  ]
+}

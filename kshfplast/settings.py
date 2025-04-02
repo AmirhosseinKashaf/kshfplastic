@@ -150,6 +150,10 @@ USE_I18N = True
 
 USE_TZ = True
 
+DEBUG_TOOLBAR_CONFIG = {
+    'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG
+}
+
 
 # Static files (CSS, JavaScript, Images)sadad
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

@@ -1,6 +1,8 @@
 from django.contrib import admin
 # from django_summernote.admin import SummernoteModelAdmin
 from blog.models import Post,Category,Comment
+from tinymce.widgets import TinyMCE
+from django.db import models
 
 # Register your models here.
 
@@ -11,7 +13,10 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ('status','author')
     # ordering = ['created_date']
     search_fields = ['title', 'content']
-    
+    formfield_overrides = {
+        models.TextField: {'widget': TinyMCE()},
+    }
+
 
 class CommentAdmin(admin.ModelAdmin):
     date_hierarchy = 'created_date'

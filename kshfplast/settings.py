@@ -59,6 +59,26 @@ INSTALLED_APPS = [
     
 ]
 
+#tinymce settings
+TINYMCE_DEFAULT_CONFIG = {
+    'height': 360,
+    'width': '100%',
+    'cleanup_on_startup': True,
+    'custom_undo_redo_levels': 20,
+    'selector': 'textarea',
+    'plugins': '''
+        textcolor save link image media preview codesample contextmenu
+        table code lists fullscreen insertdatetime nonbreaking
+        contextmenu directionality searchreplace wordcount visualblocks
+        visualchars code fullscreen autolink lists charmap print hr
+        anchor pagebreak
+    ''',
+    'toolbar': '''
+        undo redo | formatselect | bold italic | 
+        alignleft aligncenter alignright alignjustify |
+        bullist numlist outdent indent | link image | code
+    ''',
+}
 
 # robots
 ROBOTS_USE_HOST = False

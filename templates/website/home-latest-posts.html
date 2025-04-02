@@ -20,7 +20,12 @@
                         <a href="{% url 'blog:single' pid=post.id %}" class="category_btn"></a>
                     </div>
                     <div class="post_text_1 pr_30">
-                        <p><span>By {{post.author}}</span> / {{post.published_date|date:"d M, Y"}}</p>
+                        <p><span>By 
+                            {% if post.author.first_name and post.author.last_name %}
+                                {{ post.author.get_full_name }}  {# Shows "First Last" if both exist #}
+                            {% else %}
+                                {{ post.author.username }}  {# Falls back to username #}
+                            {% endif %}</span> / {{post.published_date|date:"d M, Y"}}</p>
                         <a href="{% url 'blog:single' pid=post.id %}">
                             <h3>{{post.title}}</h3>
                         </a>

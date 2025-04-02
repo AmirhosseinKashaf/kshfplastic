@@ -224,6 +224,6 @@ if not DEBUG:  # Only enforce HTTPS in production
 # These can stay outside the DEBUG check
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
-# X_FRAME_OPTIONS = 'SAMEORIGIN'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
 SECURE_REFERRER_POLICY = "strict-origin"
 USE_X_FORWARDED_HOST = True

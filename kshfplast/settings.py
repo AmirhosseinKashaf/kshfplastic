@@ -49,11 +49,12 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'django.contrib.sites',
     'django.contrib.sitemaps',
-    'django_summernote',
+    # 'django_summernote',
     'captcha',
     'taggit',
     'robots',
     'debug_toolbar',
+    'tinymce',
     'compressor',
     
 ]

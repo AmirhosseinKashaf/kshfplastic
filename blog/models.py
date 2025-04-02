@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from taggit.managers import TaggableManager
+from tinymce.models import HTMLField
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -13,7 +14,7 @@ class Post(models.Model):
     image = models.ImageField(upload_to='blog',default='blog/default.png')
     author = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = HTMLField()
     tags = TaggableManager()
     counted_views = models.IntegerField(default=0)
     status = models.BooleanField(default=False)
